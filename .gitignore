@@ -32,3 +32,9 @@ yarn-error.log*
 
 # vercel
 .vercel
+
+# Symlinked folders
+public
+styles
+components
+pages
