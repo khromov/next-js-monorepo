@@ -1,34 +1,47 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Multi-tenant Next.js project
+
+This example project lets you have multiple discrete Next.js sites while sharing modules, components and NPM dependencies.
+
+Directory structure:
+
+```bash
+├── utils  # Shared modules
+├── shared  # Shared React components
+├── sites   # Site folder
+│   ├── site-1  # Discrete site
+│   │   ├── components  # Site-specific components
+│   │   ├── pages       # Site-specific pages
+│   │   ├── public      # Site-specific public folder
+│   │   └── styles      # Site-specific files
+│   └── site-2
+│       ├── components
+│       ├── pages
+│       ├── public
+│       └── styles
+        ...
+```
+
+This approach uses a very simple symbolic links approach. By using a bash script we simply symlink `pages` and `public` folder (and a couple more for convenience) to the root location where Next.js expects to find them. 
+
+There are many other ways to achieve multi-tenancy in Next.js, feel free to read [my blog post]() about different available options.
+
+### Pros and cons
+Most other approaches don't tackle how to handle the `api/` or `public/` folder while this approach will give you a separate codebase for each that works as you would expect on a standalone Next.js site.
+
+The downside of this approach is that you can only run and build one site at a time. This might be a pro or a con, depending on how you see it. Another downside is that the symlink approach is very crude and can be confusing to work in. This project includes a Visual Studio Code configuration file to hide the symlinked folders from you so that you don't get confused about which files are being edited.
 
 ## Getting Started
 
-First, run the development server:
+First, let's switch to the site you want to edit:
+
+```bash
+./switch site-1
+```
+
+Now you can start Next.js like normal:
 
 ```bash
 npm run dev
-# or
-yarn dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
