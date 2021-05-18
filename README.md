@@ -1,12 +1,15 @@
-## Multi-tenant Next.js project
+## Multi-tenant Next.js
 
-This example project lets you have multiple discrete Next.js sites while sharing modules, components and NPM dependencies.
+This example project lets you have multiple discrete Next.js sites while sharing modules, components and NPM dependencies. 
+This approach could be considered either a multitenant or monorepo-like architecture.
 
 Directory structure:
 
 ```bash
-├── utils  # Shared modules
-├── shared  # Shared React components
+├── shared  # Shared across all sites
+│   ├── utils # Utilities and modules
+│   ├── components # React components
+    ...
 ├── sites   # Site folder
 │   ├── site-1  # Discrete site
 │   │   ├── components  # Site-specific components
@@ -21,9 +24,9 @@ Directory structure:
         ...
 ```
 
-This approach uses a very simple symbolic links approach. By using a bash script we simply symlink `pages` and `public` folder (and a couple more for convenience) to the root location where Next.js expects to find them. 
+This approach uses a very simple symbolic links approach. By using a bash script we symlink `pages` and `public` folder (and a couple more for convenience) to the root location where Next.js expects to find them. 
 
-There are many other ways to achieve multi-tenancy in Next.js, feel free to read [my blog post]() about different available options.
+There are many other ways to achieve multi-tenancy in Next.js, feel free to read [my blog post]() about other available options available options.
 
 ### Pros and cons
 Most other approaches don't tackle how to handle the `api/` or `public/` folder while this approach will give you a separate codebase for each that works as you would expect on a standalone Next.js site.
