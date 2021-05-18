@@ -1,0 +1,8 @@
+{
+    "files.exclude": {
+        "components/": true,
+        "pages/": true,
+        "public/": true,
+        "styles/": true
+    }
+}
