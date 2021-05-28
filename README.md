@@ -1,7 +1,6 @@
 ## Multi-tenant Next.js
 
 This example project lets you have multiple discrete Next.js sites while sharing modules, components and NPM dependencies. 
-This approach could be considered either a multitenant or monorepo-like architecture.
 
 Directory structure:
 
