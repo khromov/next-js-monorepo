@@ -25,7 +25,7 @@ Directory structure:
 
 This approach uses a very simple symbolic links approach. By using a bash script we symlink `pages` and `public` folder (and a couple more for convenience) to the root location where Next.js expects to find them. 
 
-There are many other ways to achieve multi-tenancy in Next.js, feel free to read [my blog post]() about other available options available options.
+There are many other ways to achieve multi-tenancy in Next.js, feel free to read [my blog post](https://khromov.se/code-sharing-patterns-for-next-js/) about other available options available options.
 
 ### Pros and cons
 Most other approaches don't tackle how to handle the `api/` or `public/` folder while this approach will give you a separate codebase for each that works as you would expect on a standalone Next.js site.
